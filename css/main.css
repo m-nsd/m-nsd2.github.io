@@ -1,0 +1,196 @@
+
+/* グローバルスタイル */
+html {
+  box-shadow: 0 0 0 30px #000 inset;
+  padding: 0 30px;
+} /* ブラウザの表示画面を額縁のようにする */
+body {
+  font-family: helvetica, arial, sans;
+}
+h1 {
+  font-size: 7vw;
+  margin-top: 0;
+}
+a {
+  color: #f00;
+}
+  /* グローバルスタイル内で兄弟セレクタを試す */
+  h2 ~ p { /* 隣接(+) 一般(~) */
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 1em auto 0;
+    max-width: 70%;
+    text-align: center;
+  }  
+
+/* ヘッダースタイル */
+.header {
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+}
+        /* ヘッダロゴ */
+ .header-logo {
+  background-color: #000;
+  box-sizing: border-box;
+  display: block;
+  height: 10vh;
+  left: -30px; /* 少し左にずらす */
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+  width: 10vh;
+}
+.header-logo:hover,
+.header-logo:active {
+  background-color: #ed6e2f;
+}
+.header-logo img {
+  width: 4.3vh;
+}
+        /* ヘッダナビ */
+.header-nav {
+  float: right;
+  padding: 5.5vh 60px 0 0;
+}
+.header-nav > li {
+  display: inline-block;
+  margin-left: 1em;
+}
+.header-nav > li ~ li { /* 一般兄弟セレクタを使いNAV1～3を選択しNAV1～3の左に縦棒を入れる */
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 1em;
+}
+.header-nav a {
+  color: #fff;
+}
+/* ナビHOMEは、先に定義のナビHOMEからNAV3を上書きする必要があるため後ろで定義する */
+.header-nav > li:first-child a {
+  color: #ed6e2f;
+}
+.header-nav > li:first-child a:hover {
+  color: #fff;
+}
+    /* ナビリンク(ヘッダ・フッタ共通) */
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav-links a:hover,
+.nav-links a:active {
+  color: #ed6e2f;
+}
+
+/* フッタースタイル */
+.footer {
+  background-color: #000;
+  padding: 10vh 0 15vh;
+  text-align: center;
+}
+.footer-logo img {
+  width: 50px;
+}
+    /* フッタナビ */
+.footer-nav li {
+  display: inline-block;
+  margin: 2em 1em 0;
+}
+.footer-nav a {
+  color: #ccc;
+}
+
+.footer h3 {
+  color: #fff;
+  padding-top: 1.5em;
+  text-transform: uppercase;
+}
+.footer h3 span {
+  color: #aaa;
+}
+
+/* ヒーロースタイル */
+.full-hero {
+  background-color: #c7dbfc;
+  height: 50vh;
+  /* position: relative; 5.8.2演習1 */
+}
+/* .full-hero:hover {
+  background-color: pink; 5.7.2演習2
+} */
+
+/* SNSスタイル */
+.social-link {
+  background: rgba(150, 150, 150, 0.5);
+  border-radius: 99px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-family: helvetica, arial, sans;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2.5em;
+  line-height: 1;
+  padding-top: 0.85em;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 2.5em;
+}
+/* .social-link:hover {
+  color: #ed6e2f; 5.7.2演習1
+} */
+.social-list {
+  /* bottom: 0; 左下隅に移動 5.8.2演習1
+  left: 0; */
+  list-style: none;
+  padding: 0;
+  /* position: absolute; 5.8.2演習1 */
+  /* position: relative;
+  z-index: 40; 5.9.1演習 */
+  text-align: center;
+}
+.social-list > li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+/* バイオグラフィースタイル */
+.bio-wrapper {
+  font-size: 24px;
+  margin: auto;
+  max-width: 960px;
+  overflow: hidden;
+}
+.bio-box {
+  border: 1px solid black;
+  box-sizing: border-box;
+  float: left;
+  font-size: 1rem;
+  margin: 40px 1% 0;
+  padding: 2%;
+  width: 23%;
+}
+.bio-box h3 {
+  color: #fff;
+  font-size: 1.5em;
+  margin: -40px 0 1em;
+  text-align: center;
+}
+.bio-box img {
+  width: 100%;
+}
+.bio-box .social-link {
+  display: block;
+  margin: 2em 0 1em;
+}
+.bio-copy {
+  font-size: 1em;
+  line-height: 1.5;
+}
+.bio-copy a {
+  color: green;
+}
