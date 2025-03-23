@@ -1,11 +1,22 @@
 
 /* グローバルスタイル */
-html {
+html { /* ブラウザの表示画面を額縁のようにする */
   box-shadow: 0 0 0 30px #000 inset;
   padding: 0 30px;
-} /* ブラウザの表示画面を額縁のようにする */
-body {
+} 
+
+body { /* フレックスコンテナ */
+  display: flex;
+  flex-direction: column;
   font-family: helvetica, arial, sans;
+  min-height: 100vh;
+}
+.content-container {
+  display: flex; /* 子に対しフレックスコンテナ */
+  flex-direction: column; /* 子のフレックスアイテムは縦並び上から下 */
+  flex: 1 1 auto; /* 親に対しフレックスアイテム */
+  padding-top: 10vh;
+  width: 100%;
 }
 h1 {
   font-size: 7vw;
@@ -19,6 +30,7 @@ a {
 }
 p {
   line-height: 1.5;
+  margin: 0.75 0;
 }
   /* グローバルスタイル内で兄弟セレクタを試す */
   h2 ~ p { /* 隣接(+) 一般(~) */
@@ -123,8 +135,8 @@ p {
   background-color: #c7dbfc;
   background-size: cover;
   box-sizing: border-box;
-  height: 100vh;
-  padding-top: 10vh;
+  height: 90vh;
+  /* padding-top: 10vh; */
 }
 .full-hero:after { /* 疑似要素による下差し三角形▼の作成 */
   border: 10px solid;
@@ -200,6 +212,36 @@ p {
 }
 
 /* Homeページスタイル */
+.home-callout {
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  display: flex; /* フレックスコンテナ */
+  flex-direction: row /* 横並び 左⇒右 */
+  padding: 7vh 0;
+}
+.home-callout h3 {
+  color: inherit; /* 親コンテナ要素の設定を相続する */
+  margin-top: 1em;
+}
+.callout-title {
+  flex: 1 1 50vw;
+  /* flex-basis: 50vw; テキストは0
+  flex-grow: 0; テキストは1 */
+  font-size: 5.75vw;
+  text-align: right;
+  text-transform: uppercase;
+}
+.callout-copy {
+  flex: 1 1 50vw;
+  /* flex-basis: 50vw; /* テキストは45em
+  flex-grow: 0; テキストは1
+  flex-shrink: 1; テキストは0 縮小無 */
+  font-size: 0.8rem;
+  padding: 0 3vw;
+}
+
+/* homeセクション */
 .home-section {
   margin: 6rem auto;
   max-width: 980px;
@@ -208,19 +250,6 @@ p {
 .home-section h2 {
   margin-bottom: 1.5rem;
   text-align: center;
-}
-.home-callout {
-  background-color: #000;
-  color: #fff;
-  padding: 7vh 0;
-}
-.callout-title {
-  font-size: 5.75vw;
-  text-align: right;
-  text-transform: uppercase;
-}
-.callout-copy {
-  font-size: 0.8rem;
 }
 
 /* バイオグラフィースタイル */
@@ -257,4 +286,69 @@ p {
 }
 .bio-copy a {
   color: green;
+}
+
+/* カラムスタイル */
+.col-three {
+  display: flex; /* フレックスコンテナ */
+  flex-direction: row; /* 左⇒右に横並び(初期値) */
+  flex: 1 1 0; /* 親に対しフレックスアイテム */
+}
+.col {
+  box-sizing: border-box;
+  padding: 2em;
+}
+.col-three .col ~ .col {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.col-three .col-nav {
+  flex: 0 1 15em;
+}
+.col-three .col-content {
+  flex: 1 1 0;
+}
+.col-three .col-aside {
+  flex: 0 1 20em;
+}
+/* ギャラリースタイル */
+.gallery-thumbs {
+  height: 90vh;
+  overflow: scroll;
+}
+.gallery-thumbs > div {
+  cursor: pointer;
+}
+/* .gallery-thumbs .current {
+  cursor: default;
+} カレントのサムネイル上ではマウスカーソル変化しない */
+
+.gallery-thumbs img {
+  box-sizing: border-box;
+  box-shadow: 0 0 0 5px transparent;
+  display: inline-block;
+  margin: 0 0 10px;
+  opacity: 0.5;
+  transition: all 0.s ease-in-out;
+  width: 100%;
+}
+.gallery-thumbs img:hover {
+  opacity: 1;
+}
+.gallery-thumbs .current img {
+  box-shadow: 0 0 0 5px #ed6e2f;
+  opacity: 1;
+}
+
+.gallery-photo {
+  position: relative;
+}
+.gallery-photo img {
+  width: 100%;
+}
+
+.gallery-info {
+  font-size: 0.8rem;
+}
+.gallery-info h3 {
+  margin-bottom: 1em;
 }
