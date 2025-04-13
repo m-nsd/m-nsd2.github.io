@@ -1,0 +1,173 @@
+body { /* フレックスコンテナ */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border: 10px solid black;
+  box-sizing: border-box;
+}
+/* ﾍｯﾀﾞおよびフッタのヘッダと共通部 */
+header {
+ display: fix;
+ height: 10vh;
+ border: 10px solid pink;
+}
+.header-nav {
+  border: 10px solid black;
+  box-sizing: border-box;
+  float: right;
+  text-align: center;
+}
+.header-nav > li {
+  list-style: none;
+  border: 5px solid green;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.drop-down {
+border: 1px solid red;
+box-sizing: border-box;
+position: relative;
+}
+.drop-trigger {
+  display: inline-block;
+  border: 5px solid black;
+  background-color: yellow;
+  position: relative;
+  padding-right: 1.5em;
+}
+.drop-trigger:after {
+  border: 0.3em solid;
+  border-color: #000 transparent transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 0.4em;
+  right: 0.1em;
+}
+.drop-menu {
+  display: none;
+  border: 1px solid red;
+  list-style: none;
+  position: absolute;
+  padding: 1em 0 0 0;
+  right: 0;
+  top: 1em;
+  z-index: 9;
+}
+.drop-down:hover .drop-menu {
+  display: block;
+}
+.drop-menu:before {
+  border: 0.6em solid;
+  border-color: transparent transparent aquamarine;
+  content: "";
+  position: absolute;
+  right: 1em;
+  top: -0.2em;
+  width: 0;
+}
+.drop-menu li {
+  background-color: aquamarine;
+}
+.drop-menu li ~ li { /* 項目の境界線 */
+  border-top: 2px solid rgba(0,0,0,0.1);
+}
+.drop-menu li:first-child { /* ﾒﾆｭｰの上左右に丸みを付ける */
+  border-radius: 10px 10px 0 0;
+  color: #999;
+  font-size: 0.5em;
+  padding: 1em 1em 0.25em;
+  text-transform: uppercase;
+}
+.drop-menu li:last-child { /* ﾒﾆｭｰの下左右に丸みを付ける */
+  border-radius: 0 0 10px 10px;
+}
+.drop-menu a {
+  color: #333;
+  display: block;
+  font-weight: normal;
+  padding: 0.5em 2em 0.5em 1em;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* フッター専用部(ヘッダと共通部を除く) */
+footer {
+ border: 10px solid blue;
+ box-sizing: border-box;
+ text-align: center;
+ position: relative;
+}
+.footer-nav {
+  border: 5px solid green;
+  text-align: center;
+}
+.footer-nav > li {
+  list-style: none;
+  border: 5px solid pink;
+  box-sizing: border-box;
+  display: inline-block;
+} 
+.footer-nav .drop-down {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.footer-nav .drop-menu {
+  display: none;
+  border: 2px solid blueviolet;
+  list-style: none;
+  position: absolute;
+  padding: 0 0 1em 0;
+  right: -5em;
+  top: -8.5em;
+  z-index: 9;
+}
+.footer-nav .drop-down:hover .drop-menu {
+  display: block;
+}
+.footer-nav .drop-trigger {
+  display: inline-block;
+  border: 5px solid black;
+  background-color: yellow;
+  position: relative;
+  padding-right: 1.5em;
+}
+.footer-nav .drop-trigger:after {
+  border: 0.3em solid;
+  border-color:  transparent transparent #000;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+}
+.footer-nav .drop-menu:before {
+  border: 0.6em solid;
+  border-color: aquamarine transparent transparent ;
+  content: "";
+  position: absolute;
+  left: 1em;
+  top: 7.6em;
+  width: 0;
+}
+
+/* コンテンツ部 */
+.content-container {
+  box-sizing: border-box;
+  border: 5px solid green;
+  flex: 1 1 auto; /* 親に対しフレックスアイテム */
+  width: 100%;
+  display: flex; /* 子に対しフレックスコンテナ */
+  flex-direction: column; /* 子のフレックスアイテムは縦並び上から下 */
+}
+.main-content {
+  box-sizing: border-box;
+  border: 5px solid red;
+}
+
+

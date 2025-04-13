@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+  <title>Test Page: Don't Panic</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/test1.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="header-nav">
+        {% include nav-links2.html %}  
+      </ul>
+    </nav>
+    <a href="/">header-logo</a>
+  </header>
+    
+    <div class="content-container">
+      {{ content }}
+    </div>
+
+    <footer>
+      <a href="/">footer-logo</a>
+      <nav>
+        <ul class="footer-nav">
+          {% include nav-links2.html %}
+        </ul>
+      </nav>
+      <p>ここはフッターです。</p>
+    </footer>
+      
+  </body>
+  </body>
+</html>
