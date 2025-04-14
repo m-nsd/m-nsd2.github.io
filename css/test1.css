@@ -12,7 +12,7 @@ header {
  border: 10px solid pink;
 }
 .header-nav {
-  border: 10px solid black;
+  border: 5px solid red;
   box-sizing: border-box;
   float: right;
   text-align: center;
@@ -155,6 +155,12 @@ footer {
   top: 7.6em;
   width: 0;
 }
+/* ﾓﾊﾞｲﾙﾒﾆｭｰｽﾀｲﾙ */
+/* 通常は非表示にしておく */
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
+}
 
 /* コンテンツ部 */
 .content-container {
@@ -168,6 +174,67 @@ footer {
 .main-content {
   box-sizing: border-box;
   border: 5px solid red;
+}
+
+/* モバイル画面設定 */
+@media (max-width: 800px) {
+  /* ﾓﾊﾞｲﾙﾒﾆｭｰｽﾀｲﾙ */
+  header {
+    display: block;
+    position: reative;
+    flex: 0 1 0;
+  }
+  /* MENUをｸﾘｯｸすると表示させる */
+  .mobile-menu-check:checked ~ .header-nav {
+    max-height: 1000px;
+    /* 注釈 隣接兄弟セレクタ(+)でも同じ */
+  }
+  .show-mobile-menu {
+    display: block; /* ﾁｪｯｸﾎﾞｯｸｽは表示しない MENU文字のみ表示させる */
+    border: 5px solid black;
+    float: right;
+    font-weight: bold;
+    margin-top: 1.5vh;
+    padding: 1.5em;
+    position: relative;
+    text-transform: uppercase;
+  }
+  .header-nav { /* ﾒﾆｭｰ項目を縦積にするために
+    枠を少し下にずらし、横一杯に広げる */
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    z-index: 9;
+  }
+  .header-nav li { /*項目を縦積みに */
+    display: block;
+  }
+  
+  /* Nav2内のﾄﾞﾛｯﾌﾟﾀﾞｳﾝを非表示にする */
+  .header-nav .drop-down:hover .drop-menu,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+  .header-nav .drop-trigger {
+    padding-right: 0;
+  }
+  /* 開いているﾒﾆｭｰを閉じる(CLOSE)を表示 */
+  .mobile-menu-check:checked ~ .show-mobile-menu:after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 1.5em;
+    width: 100%;
+  }
 }
 
 
